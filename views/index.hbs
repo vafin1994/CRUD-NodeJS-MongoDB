@@ -1,2 +1,40 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h2>Создать нового пользователя</h2>
+<form action="/create" method="post">
+    <label for="name">Имя</label>
+    <input type="text" name="name" id="name">
+    <label for="surname">Фамилия</label>
+    <input type="text" name="surname" id="surname">
+    <label for="age">Возраст</label>
+    <input type="text" name="age" id="age">
+    <button type="reset">Reset</button>
+    <button type="submit">Send</button>
+</form>
+<h2>Список пользователей</h2>
+<a href="/read"> <button>Обновить</button></a>
+    {{# each items}}
+        <div class="user">
+            <div> Id: {{this._id}}</div>
+            <div> Имя: {{ this.name }}</div>
+            <div> Фамилия: {{this.surname}}</div>
+            <div> Возраст: {{this.age}}</div>
+        </div>
+    {{/each}}
+<h2>Изменить пользователя</h2>
+<form action="/update" method="post">
+    <label for="name">ID</label>
+    <input type="text" name="id" id="id">
+    <label for="name">Имя</label>
+    <input type="text" name="name" id="name">
+    <label for="name">Фамилия</label>
+    <input type="text" name="surname" id="surname">
+    <label for="name">Возраст</label>
+    <input type="text" name="age" id="age">
+    <button type="reset">Reset</button>
+    <button type="submit">Send</button>
+</form>
+<h2>Удалить пользователя</h2>
+<form action="/delete" method="post">
+    <label for="id">ID</label>
+    <input type="text" name="id" id="id">
+    <button type="submit">Delete</button>
+</form>
